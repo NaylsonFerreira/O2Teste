@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  {% include 'core_app/cabecalho.html' %}
+</head>
+
+<body>
+  <div class="pusher">
+    {% include 'core_app/menu.html' %}
+    <!--  -->
+    <div class='ui container' style="margin-top:3em;">
+      <h2 class="ui center aligned header">
+        {{cabecalho}}
+      </h2>
+      <div class="ui container text left aligned" style="margin-top:10em;margin-bottom:10em;">
+        <form action="" class="ui text container" style="text-align: center;margin-top: 2em;" method="post">
+          {% csrf_token %}
+          <p>Tem certeza que Deseja Excluir <b>{{ object }}</b> ?</p>
+          <button type="submit" class="blue ui button">Confirmar</button>
+        </form>
+      </div>
+
+    </div>
+
+
+    <!--  -->
+    {% include 'core_app/rodape.html' %}
+  </div>
+</body>
+
+</html>

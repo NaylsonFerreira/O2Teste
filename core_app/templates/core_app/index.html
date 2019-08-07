@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  {% include 'core_app/cabecalho.html' %}
+</head>
+
+<body>
+  {% include 'core_app/menu.html' %}
+  <div class="pusher">
+    <h2 class="ui center aligned header" style="margin-top: 2em">
+      Lista de Candidatos
+    </h2>
+    <div class="ui main container text" style="margin-top:2em;min-height:20em">
+      <div class="ui middle aligned divided list">
+        {% for candidato in candidatos %}
+        <div class="item">
+          <div class="right floated content">
+            <a href="{% url 'core_app:Update_Candidato' candidato.pk %}" class="ui button blue">Editar</a>
+            <a href="{% url 'core_app:Delete_Candidato' candidato.pk %}" class="ui button red">Excluir</a>
+          </div>
+          <div class="content">
+            {{candidato.nome}}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!--  -->
+    {% include 'core_app/rodape.html' %}
+  </div>
+</body>
+
+</html>
